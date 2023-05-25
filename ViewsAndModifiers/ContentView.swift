@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct CapsuleText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            .background(.blue)
+            .clipShape(Capsule())
+    }
+}
+
 struct ContentView: View {
     var city1: some View {
         Text("Nairobi")
@@ -23,6 +35,22 @@ struct ContentView: View {
     var body: some View {
         VStack{
             otherCities
+            VStack{
+                CapsuleText(text: "Kamba")
+                    .foregroundColor(.white)
+                Text("Kamba")
+                    .font(.largeTitle)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.blue)
+                CapsuleText(text: "Luyha")
+                    .foregroundColor(.yellow)
+                Text("Luyha")
+                    .font(.largeTitle)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.blue)
+            }
         }
     }
 }
