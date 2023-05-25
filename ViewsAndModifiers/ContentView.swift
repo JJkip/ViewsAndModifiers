@@ -6,6 +6,39 @@
 //
 
 import SwiftUI
+//Custom modifier start
+struct WaterMrk: ViewModifier {
+    var text: String
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            
+            Text(text)
+                .font(.caption)
+                .foregroundColor(.white)
+                .padding(5)
+                .background(.black)
+        }
+    }
+}
+
+extension View {
+    func watermarked(with text: String) -> some View {
+        modifier(WaterMrk(text: text))
+    }
+}
+
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .padding()
+            .background(.purple)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+}
+//Custom modifier end
 
 struct CapsuleText: View {
     var text: String
@@ -16,6 +49,11 @@ struct CapsuleText: View {
             .padding()
             .background(.blue)
             .clipShape(Capsule())
+    }
+}
+extension View {
+    func titleStyle() -> some View {
+        modifier(Title())
     }
 }
 
@@ -50,6 +88,17 @@ struct ContentView: View {
                     .padding()
                     .foregroundColor(.white)
                     .background(.blue)
+            }
+            Text("Custom modifier text")
+//                .modifier(Title())
+                .titleStyle()
+            Text("Another Custom modifier text")
+                .frame(width: 100, height: 30)
+                .background(.red)
+            VStack {
+                Color.brown
+                    .frame(width: 300, height: 200)
+                    .watermarked(with: "On Offer")
             }
         }
     }
