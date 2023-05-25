@@ -8,37 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var useRedText = false
+    var city1: some View {
+        Text("Nairobi")
+    }
+    
+    let city2 = Text("Kisumu")
+    
+    @ViewBuilder var otherCities: some View {
+        Text("Kericho")
+        Text("Narok")
+        Text("Embu")
+    }
+    
     var body: some View {
-        VStack {
-            Button("Hello, world") {
-                print(type(of: self.body))
-            }
-            .frame(width: 200, height: 200)
-            .background(.red)
-            .padding(.bottom,50)
-            Text("Hello, World")
-                .padding()
-                .background(.red)
-                .padding()
-                .background(.blue)
-                .padding()
-                .background(.green)
-                .padding()
-                .background(.brown)
-            Button("Click to toggle my color") {
-                useRedText.toggle()
-            }
-            .foregroundColor(useRedText ? .red : .blue)
-            .padding(.top,50)
-            VStack {
-                Text("Nairobi")
-                    .font(.largeTitle)
-                Text("Kisumu")
-                Text("Mombasa")
-                Text("Nakuru")
-            }
-            .font(.title)
+        VStack{
+            otherCities
         }
     }
 }
