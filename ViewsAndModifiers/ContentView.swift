@@ -25,6 +25,9 @@ struct ContentView: View {
                 .padding()
                 .background(.brown)
         }
+        Text("Hello, World")
+        Text("Hello, World")
+        Text("Hello, World")
     }
 }
 
