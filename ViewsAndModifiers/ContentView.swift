@@ -31,6 +31,14 @@ struct ContentView: View {
             }
             .foregroundColor(useRedText ? .red : .blue)
             .padding(.top,50)
+            VStack {
+                Text("Nairobi")
+                    .font(.largeTitle)
+                Text("Kisumu")
+                Text("Mombasa")
+                Text("Nakuru")
+            }
+            .font(.title)
         }
     }
 }
